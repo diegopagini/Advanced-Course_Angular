@@ -1,49 +1,43 @@
-import {AfterContentInit, Component, ContentChildren, Input, OnInit, QueryList, TemplateRef} from '@angular/core';
-import {AuTabComponent} from "../au-tab/au-tab.component";
+import {
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  Input,
+  OnInit,
+  QueryList,
+  TemplateRef,
+} from "@angular/core";
+import { AuTabComponent } from "../au-tab/au-tab.component";
 
 @Component({
-    selector: 'au-tab-panel',
-    templateUrl: './au-tab-panel.component.html',
-    styleUrls: ['../tab-panel.component.scss']
+  selector: "au-tab-panel",
+  templateUrl: "./au-tab-panel.component.html",
+  styleUrls: ["../tab-panel.component.scss"],
 })
 export class AuTabPanelComponent implements AfterContentInit {
+  @ContentChildren(AuTabComponent)
+  tabs: QueryList<AuTabComponent>;
 
-    @ContentChildren(AuTabComponent)
-    tabs: QueryList<AuTabComponent>;
+  @Input()
+  headerTemplate: TemplateRef<any>;
 
-    @Input()
-    headerTemplate: TemplateRef<any>;
+  ngAfterContentInit() {
+    const selectedTab = this.tabs.find((tab) => tab.selected);
 
-
-    ngAfterContentInit() {
-
-        const selectedTab = this.tabs.find(tab => tab.selected);
-
-        if (!selectedTab && this.tabs.first) {
-            this.tabs.first.selected = true;
-        }
-
+    if (!selectedTab && this.tabs.first) {
+      this.tabs.first.selected = true;
     }
+  }
 
-    selectTab(tab: AuTabComponent) {
+  selectTab(tab: AuTabComponent) {
+    this.tabs.forEach((tab) => (tab.selected = false));
 
-        this.tabs.forEach(tab => tab.selected = false);
+    tab.selected = true;
+  }
 
-        tab.selected = true;
-
-    }
-
-    get tabsContext() {
-        return {
-            tabs: this.tabs
-        }
-    }
-
+  get tabsContext() {
+    return {
+      tabs: this.tabs,
+    };
+  }
 }
-
-
-
-
-
-
-

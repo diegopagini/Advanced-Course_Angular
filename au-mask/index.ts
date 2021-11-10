@@ -1,3 +1,1 @@
-
-
-export {AuMaskModule} from './src/app/au-mask/au-mask.module';
+export { AuMaskModule } from "./src/app/au-mask/au-mask.module";

@@ -1,98 +1,83 @@
 <header class="l-header">
-    <ul class="top-menu disable-link-styles">
-        <li class="logo-small-container">
-            <a class="v-center-block-parent">
-                <img class="v-center-block logo-small angular-university-logo"
-                     src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
-                     data-pin-nopin="true">
-
-            </a>
-        </li>
-        <li>
-            <a>Animations</a>
-        </li>
-    </ul>
-
+  <ul class="top-menu disable-link-styles">
+    <li class="logo-small-container">
+      <a class="v-center-block-parent">
+        <img
+          class="v-center-block logo-small angular-university-logo"
+          src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png"
+          data-pin-nopin="true"
+        />
+      </a>
+    </li>
+    <li>
+      <a>Animations</a>
+    </li>
+  </ul>
 </header>
 
-
-
 <body>
-<div class="container">
-    <h1>
-        Animations
-    </h1>
+  <div class="container">
+    <h1>Animations</h1>
 
     <ng-template #modalBody>
+      <ng-template #modalButtons>
+        <div class="modal-buttons">
+          <button (click)="tabPanel.selectTab(stripeTab)">Stripe</button>
+          <button (click)="tabPanel.selectTab(paypalTab)">Paypal</button>
+        </div>
+      </ng-template>
 
-        <ng-template #modalButtons>
+      <au-tab-panel #tabPanel>
+        <au-tab title="Stripe" #stripeTab>
+          <div class="payment-form">
+            <label>Email:</label>
+            <au-fa-input class="form-input" icon="envelope">
+              <input auInput type="email" placeholder="Email" />
+            </au-fa-input>
 
-            <div class="modal-buttons">
-                <button (click)="tabPanel.selectTab(stripeTab)">Stripe</button>
-                <button (click)="tabPanel.selectTab(paypalTab)">Paypal</button>
-            </div>
+            <label>Name:</label>
+            <input class="form-input" placeholder="Name" />
 
-        </ng-template>
+            <label>Card Number:</label>
+            <au-fa-input icon="cc-stripe" class="form-input">
+              <input
+                auInput
+                placeholder="Card Number"
+                au-mask="9999 9999 9999 9999"
+              />
+            </au-fa-input>
 
+            <label>Card Date:</label>
+            <input placeholder="Date" au-mask="19/9999" class="form-input" />
 
-        <au-tab-panel #tabPanel>
+            <label>CVC:</label>
+            <input placeholder="CVC" au-mask="999" class="form-input" />
 
-            <au-tab title="Stripe" #stripeTab>
+            <label>Coupon Code:</label>
+            <input placeholder="Coupon Code (optional)" class="form-input" />
 
-                <div class="payment-form">
+            <button class="modal-button">Trigger Stripe Payment</button>
+          </div>
+        </au-tab>
 
-                    <label>Email:</label>
-                    <au-fa-input class="form-input" icon="envelope">
-                        <input auInput type="email" placeholder="Email">
-                    </au-fa-input>
+        <au-tab title="Paypal" #paypalTab>
+          <div class="payment-form">
+            <label>Coupon Code:</label>
+            <input placeholder="Coupon Code (optional)" class="form-input" />
 
-                    <label>Name:</label>
-                    <input class="form-input" placeholder="Name">
-
-                    <label>Card Number:</label>
-                    <au-fa-input icon="cc-stripe" class="form-input">
-                        <input auInput placeholder="Card Number" au-mask="9999 9999 9999 9999">
-                    </au-fa-input>
-
-                    <label>Card Date:</label>
-                    <input placeholder="Date" au-mask="19/9999" class="form-input">
-
-                    <label>CVC:</label>
-                    <input placeholder="CVC" au-mask="999" class="form-input">
-
-                    <label>Coupon Code:</label>
-                    <input placeholder="Coupon Code (optional)" class="form-input">
-
-                    <button class="modal-button">Trigger Stripe Payment</button>
-
-                </div>
-
-            </au-tab>
-
-            <au-tab title="Paypal" #paypalTab>
-
-                <div class="payment-form">
-                    <label>Coupon Code:</label>
-                    <input placeholder="Coupon Code (optional)" class="form-input">
-
-                    <button class="modal-button">Trigger Paypal Payment</button>
-                </div>
-
-            </au-tab>
-
-        </au-tab-panel>
-
+            <button class="modal-button">Trigger Paypal Payment</button>
+          </div>
+        </au-tab>
+      </au-tab-panel>
     </ng-template>
 
-
-    <au-modal [@fadeInOut] *auModalOpenOnClick="paymentModal" [body]="modalBody">
-
-
+    <au-modal
+      [@fadeInOut]
+      *auModalOpenOnClick="paymentModal"
+      [body]="modalBody"
+    >
     </au-modal>
 
-
     <button #paymentModal>Open Payment Modal</button>
-
-</div>
-
+  </div>
 </body>

@@ -1,7 +1,4 @@
-
 $secondary: rgba(0, 0, 0, 0.117647);
-
-
 
 .modal-body {
   position: absolute;
@@ -11,12 +8,12 @@ $secondary: rgba(0, 0, 0, 0.117647);
   transform: translate(-50%, -50%);
   z-index: 20;
   $border: 1px solid $secondary;
-  border:$border;
+  border: $border;
   border-radius: 4px;
   background: white;
-  box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.14), 0 4px 8px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.14),
+    0 4px 8px -1px rgba(0, 0, 0, 0.12);
 }
-
 
 .modal-overlay {
   display: inline-block;
@@ -25,7 +22,7 @@ $secondary: rgba(0, 0, 0, 0.117647);
   height: 100%;
   left: 0;
   top: 0;
-  background: rgba(51,51,51,0.7);
+  background: rgba(51, 51, 51, 0.7);
   z-index: 10;
 }
 
@@ -34,12 +31,10 @@ $secondary: rgba(0, 0, 0, 0.117647);
   height: 20px;
 }
 
-:host .close-icon::ng-deep i  {
+:host .close-icon::ng-deep i {
   cursor: pointer;
   position: fixed;
   right: 5px;
   top: 5px;
   height: 15px;
-
 }
-
