@@ -5,6 +5,7 @@ import { By } from "@angular/platform-browser";
 import { AuInputModule } from "./lib/au-input.module";
 
 describe("AppComponent", () => {
+  // When we use "," to declare a variable, is used to declare more than one variable
   let component: AppComponent,
     fixture: ComponentFixture<AppComponent>,
     el: DebugElement,

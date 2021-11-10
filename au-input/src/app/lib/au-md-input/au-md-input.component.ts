@@ -1,7 +1,6 @@
 import {
   Component,
   Input,
-  OnInit,
   ContentChild,
   AfterContentInit,
   HostBinding,
@@ -17,6 +16,7 @@ export class AuMdInputComponent implements AfterContentInit {
   @Input()
   icon: string;
 
+  // ContentChild is used to get the input element from the template in a ng-content tag
   @ContentChild(InputRefDirective, { static: false })
   input: InputRefDirective;
 
@@ -26,6 +26,7 @@ export class AuMdInputComponent implements AfterContentInit {
     }
   }
 
+  // HostBinding is used to bind the class to the host element
   @HostBinding("class.input-focus")
   get isInputFocus() {
     return this.input ? this.input.focus : false;
