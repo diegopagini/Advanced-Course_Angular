@@ -16,7 +16,7 @@
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
 }
-
+// this could be nested using &
 .tab-panel-buttons li {
   display: inline-block;
   color: white;
@@ -30,6 +30,7 @@
   border-right: $tab-border;
   margin-right: 5px;
 
+  // this is the sass way to nest selectors
   &.selected {
     background: white;
     color: $text;

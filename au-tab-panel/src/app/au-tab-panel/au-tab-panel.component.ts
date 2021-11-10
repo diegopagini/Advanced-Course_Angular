@@ -3,7 +3,6 @@ import {
   Component,
   ContentChildren,
   Input,
-  OnInit,
   QueryList,
   TemplateRef,
 } from "@angular/core";
