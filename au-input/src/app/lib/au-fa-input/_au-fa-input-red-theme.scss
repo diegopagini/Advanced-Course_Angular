@@ -1,5 +1,7 @@
 $border-color: red;
+// this is the way to name a variable in scss
 
+// host-context is a helper to scope component styles in the correct selector
 :host-context(.au-fa-input-red-theme) {
   border-color: $border-color;
 
