@@ -22,7 +22,7 @@
     </au-tab>
 
     <!-- title and selected are properties passed through inputs -->
-    <au-tab title="Sign Up" #signUpTab [selected]="true">
+    <au-tab title="Sign Up" #signUpTab [selected]="false">
       <!-- au-tab is using ng-content tag, this way we can project html inside of this -->
       <form>
         <div class="form-field"><label>Email:</label><input /></div>
@@ -32,7 +32,7 @@
     </au-tab>
 
     <!-- title and selected are properties passed through inputs -->
-    <au-tab title="Contact" [selected]="false">
+    <au-tab title="Contact" [selected]="true">
       <!-- au-tab is using ng-content tag, this way we can project html inside of this -->
       <form>
         <div class="form-field">
