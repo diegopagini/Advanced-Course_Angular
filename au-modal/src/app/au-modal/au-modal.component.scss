@@ -7,14 +7,17 @@ $secondary: rgba(0, 0, 0, 0.117647);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 20;
+  // we can declarate a variable and use it in the scss
   $border: 1px solid $secondary;
   border: $border;
+  // this way on top
   border-radius: 4px;
   background: white;
   box-shadow: 0 1px 16px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.14),
     0 4px 8px -1px rgba(0, 0, 0, 0.12);
 }
 
+// background modal body
 .modal-overlay {
   display: inline-block;
   position: fixed;

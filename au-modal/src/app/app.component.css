@@ -4,7 +4,7 @@
   padding-top: 65px;
 }
 
-/deep/ .auth-modal .modal-body {
+::ng-deep .auth-modal .modal-body {
   min-width: 300px;
 }
 
@@ -22,7 +22,7 @@ label {
   margin-bottom: 5px;
 }
 
-input /deep/ {
+input ::ng-deep {
   max-width: 120px;
 }
 

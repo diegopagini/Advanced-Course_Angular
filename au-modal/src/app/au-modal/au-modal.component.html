@@ -1,10 +1,15 @@
+<!-- The modal-overlay is a container that covers the entire viewport. -->
 <div class="modal-overlay" (click)="onClickOutsideModal()">
+  <!-- The modal-body is a container for the modal content. -->
   <div class="modal-body" (click)="cancelClick($event)">
     <div class="close-icon">
+      <!-- The ng-content tag is used to insert content into the component. -->
       <ng-content select="i"></ng-content>
     </div>
 
+    <!-- If the body property exists, the modal-body will be displayed. Else the projectContet -->
     <ng-container *ngIf="body; else projectContent">
+      <!-- ngTemplateOutlet is goin to show the body templateRef passed in the au-modal.component.ts by input -->
       <ng-container *ngTemplateOutlet="body; context: context"></ng-container>
     </ng-container>
 

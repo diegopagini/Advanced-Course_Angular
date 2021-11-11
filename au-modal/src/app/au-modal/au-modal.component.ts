@@ -9,7 +9,7 @@ import { EventManager } from "@angular/platform-browser";
 })
 export class AuModalComponent implements OnInit {
   @Input()
-  body: TemplateRef<any>;
+  body: TemplateRef<any>; // This is the input property that pass the template to the modal
 
   @Input()
   context: any;
@@ -21,11 +21,12 @@ export class AuModalComponent implements OnInit {
   hideOnClickOutside = true;
 
   constructor(
-    private modalService: AuModalService,
-    private eventManager: EventManager
+    private modalService: AuModalService, // custom service to present modal
+    private eventManager: EventManager //eventManager is used to add global event listener
   ) {}
 
   ngOnInit() {
+    // method to listent the esc key press and close de modal
     this.eventManager.addGlobalEventListener("window", "keyup.esc", () => {
       if (this.hideOnEsc) {
         this.close();
@@ -33,12 +34,14 @@ export class AuModalComponent implements OnInit {
     });
   }
 
+  // method to close the modal on click outside of his body
   onClickOutsideModal() {
     if (this.hideOnClickOutside) {
       this.close();
     }
   }
 
+  // method to close the modal
   close() {
     this.modalService.close();
   }
