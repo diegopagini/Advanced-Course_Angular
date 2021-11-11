@@ -18,8 +18,16 @@
 <body>
   <div class="container">
     <h1>Modal Examples</h1>
+    <!-- the let-loginTabActive property is passed by the context property in the modal -->
+    <!-- the let word is the way to use it -->
+    <ng-template
+      #authModalBody
+      let-tittle="title"
+      let-loginTabActive="loginTabActive"
+    >
+      <!-- the title property comes from the let-tittle declared in the ng-template -->
+      <!-- <h5>{{ title }}</h5> -->
 
-    <ng-template #authModalBody let-loginTabActive="loginTabActive">
       <au-tab-panel>
         <au-tab title="Login" [selected]="loginTabActive">
           <form>
@@ -89,13 +97,16 @@
     <!-- [body]="authModalBody" this is the way that we pass a template like a input property to render -->
     <au-modal
       #modal
-      [hideOnClickOutside]="false"
+      [hideOnClickOutside]="true"
       [hideOnEsc]="true"
       [body]="authModalBody"
       [context]="{ loginTabActive: loginActive }"
       *auModalOpenOnClick="[loginButton, signUpButton]"
     >
+      <!-- The auModalOpenOnClick directive allows the inputs hideOnClickOutside and hideOnEsc and the modal to be closed
+     by clicking outside the modal or pressing the escape key if they are setted to true. -->
       <i class="fa fa-times" (click)="modal.close()"></i>
+      <!-- We can call the modal reference from the template and close it by calling the close method. -->
     </au-modal>
 
     <au-modal id="testModal" *auModalOpenOnClick="testButton"></au-modal>

@@ -22,7 +22,7 @@ export class AuModalComponent implements OnInit {
 
   constructor(
     private modalService: AuModalService, // custom service to present modal
-    private eventManager: EventManager //eventManager is used to add global event listener
+    private eventManager: EventManager // eventManager is used to add global event listener
   ) {}
 
   ngOnInit() {
@@ -46,8 +46,9 @@ export class AuModalComponent implements OnInit {
     this.modalService.close();
   }
 
+  // cancelClick is a method to cancel the close of the modal, because we want the modal to be closed only if we click outside
   cancelClick(evt: KeyboardEvent) {
-    evt.preventDefault();
-    evt.stopPropagation();
+    evt.preventDefault(); // prevent the default behaviour of the event
+    evt.stopPropagation(); // stop the propagation of the event
   }
 }

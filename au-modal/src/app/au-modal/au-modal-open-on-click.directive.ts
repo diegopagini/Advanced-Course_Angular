@@ -23,6 +23,8 @@ export class AuModalOpenOnClickDirective implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    // because de observable is emiting a value we can subscribe to it and the clear() method is used to clear the view container
+    // (the modal will be closed)
     this.modalService.close$.subscribe(() => this.viewContainer.clear());
   }
 
