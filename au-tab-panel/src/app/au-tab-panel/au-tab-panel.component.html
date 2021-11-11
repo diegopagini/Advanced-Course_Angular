@@ -1,5 +1,6 @@
 <ng-template #defaultTabsHeader>
   <ul class="tab-panel-buttons">
+    <!-- With the ngClass property we are adding the selected class if the tab is selected -->
     <li
       [ngClass]="{ selected: tab.selected }"
       (click)="selectTab(tab)"
@@ -11,6 +12,8 @@
 </ng-template>
 
 <ng-container *ngIf="headerTemplate; else defaultTabsHeader">
+  <!-- ngTemplateOutlet is used in a ng-container tag to call some ng-template tag. This case is the headerTemplate -->
+  <!-- If ng-context tag exist this mean that will call the ng-content tag. This case via the tapContext getter -->
   <ng-container *ngTemplateOutlet="headerTemplate; context: tabsContext">
   </ng-container>
 </ng-container>

@@ -1,5 +1,7 @@
 @import "./theme";
 
+// Because we are using SCSS, we need to import the SCSS files, this will allow us to use variables and mixins using $box-shadow
+// for example.
 :host {
   box-shadow: $box-shadow;
   display: block;
@@ -37,3 +39,4 @@
     border-bottom: 1px solid white;
   }
 }
+// A good practice in sass is not to use more than 3 levels of nesting.
